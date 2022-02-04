@@ -4,17 +4,28 @@ namespace JeuDeMath
 {
     class Program
     {
-        static void poserQuestion()
+        static bool poserQuestion(int min, int max)
         {
+            Random rand = new Random();
+            int reponseInt = 0; 
             while (true) 
             {
-                Console.Write("5 + 3 = ");
+                int a = rand.Next(min, max+1);
+                int b = rand.Next(min,max+1);
+
+                Console.WriteLine($"{a} + {b} =");
                 string reponse = Console.ReadLine();
 
                 try
                 {
-                    int reponseInt = int.Parse(reponse);
-                    break;
+                    reponseInt = int.Parse(reponse);
+
+                    if(reponseInt == a + b)
+                    {
+                        return true;
+                    }
+
+                    return false;
                 }
                 catch
                 {
@@ -25,7 +36,18 @@ namespace JeuDeMath
         }
         static void Main(String[] args)
         {
-            poserQuestion();
+            const int NOMBRE_MIN = 1;
+            const int NOMBRE_MAX = 10;
+
+           bool bonneReponse =  poserQuestion(NOMBRE_MIN, NOMBRE_MAX);
+            if (bonneReponse)
+            {
+                Console.WriteLine("Bonne reponse");
+            }
+            else
+            {
+                Console.WriteLine("Mauvaise reponse");
+            }
         }
 
     }
