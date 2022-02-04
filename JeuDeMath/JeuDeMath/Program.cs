@@ -13,7 +13,7 @@ namespace JeuDeMath
                 int a = rand.Next(min, max+1);
                 int b = rand.Next(min,max+1);
 
-                Console.WriteLine($"{a} + {b} =");
+                Console.Write($"{a} + {b} = ");
                 string reponse = Console.ReadLine();
 
                 try
@@ -24,8 +24,11 @@ namespace JeuDeMath
                     {
                         return true;
                     }
-
-                    return false;
+                    else
+                    {
+                        return false;
+                    }
+                    
                 }
                 catch
                 {
@@ -38,8 +41,10 @@ namespace JeuDeMath
         {
             const int NOMBRE_MIN = 1;
             const int NOMBRE_MAX = 10;
-
             const int NB_QUESTION = 3;
+
+            int points = 0;
+
             // la boucle for
             for (int i = 0; i < NB_QUESTION; i++)
             {
@@ -49,14 +54,17 @@ namespace JeuDeMath
                 if (bonneReponse)
                 {
                     Console.WriteLine("Bonne reponse");
+                    points++;
                 }
                 else
                 {
                     Console.WriteLine("Mauvaise reponse");
                 }
                 Console.WriteLine();
+                
             }
-            
+            Console.WriteLine($"Nombres de points : {points}/{NB_QUESTION}");
+
         }
 
     }
