@@ -39,15 +39,24 @@ namespace JeuDeMath
             const int NOMBRE_MIN = 1;
             const int NOMBRE_MAX = 10;
 
-           bool bonneReponse =  poserQuestion(NOMBRE_MIN, NOMBRE_MAX);
-            if (bonneReponse)
+            const int NB_QUESTION = 3;
+            // la boucle for
+            for (int i = 0; i < NB_QUESTION; i++)
             {
-                Console.WriteLine("Bonne reponse");
+
+                Console.WriteLine($"Question N°{i+1}/{NB_QUESTION}");
+                bool bonneReponse = poserQuestion(NOMBRE_MIN, NOMBRE_MAX);
+                if (bonneReponse)
+                {
+                    Console.WriteLine("Bonne reponse");
+                }
+                else
+                {
+                    Console.WriteLine("Mauvaise reponse");
+                }
+                Console.WriteLine();
             }
-            else
-            {
-                Console.WriteLine("Mauvaise reponse");
-            }
+            
         }
 
     }
