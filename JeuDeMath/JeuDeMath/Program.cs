@@ -41,7 +41,7 @@ namespace JeuDeMath
         {
             const int NOMBRE_MIN = 1;
             const int NOMBRE_MAX = 10;
-            const int NB_QUESTION = 3;
+            const int NB_QUESTION = 10;
 
             int points = 0;
 
@@ -64,6 +64,25 @@ namespace JeuDeMath
                 
             }
             Console.WriteLine($"Nombres de points : {points}/{NB_QUESTION}");
+
+            int moyenne = NB_QUESTION / 2;
+
+            if(points == NB_QUESTION)
+            {
+                Console.WriteLine("Excellent !");
+            }
+            else if(points == 0)
+            {
+                Console.WriteLine("Revisez vos maths");
+            }
+            else if (points > moyenne)
+            {
+                Console.WriteLine("Pas mal");
+            } 
+            else
+            {
+                Console.WriteLine("Peut mieux faire");
+            }
 
         }
 
