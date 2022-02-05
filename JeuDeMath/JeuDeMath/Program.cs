@@ -12,15 +12,30 @@ namespace JeuDeMath
             {
                 int a = rand.Next(min, max+1);
                 int b = rand.Next(min,max+1);
+                int o = rand.Next(min,3);
+                // o -> 1 ou 2
+                //      1 = multiplication
+                //      2 = multiplication
+                int resultatAttendu;
 
-                Console.Write($"{a} + {b} = ");
+                if (o == 1)//Addition
+                {
+                    Console.Write($"{a} + {b} = ");
+                    resultatAttendu = a + b;
+                }
+                else //multiplication
+                {
+                    Console.Write($"{a} x {b} = ");
+                    resultatAttendu = a * b;
+
+                }
                 string reponse = Console.ReadLine();
 
                 try
                 {
                     reponseInt = int.Parse(reponse);
 
-                    if(reponseInt == a + b)
+                    if(reponseInt == resultatAttendu)
                     {
                         return true;
                     }
