@@ -24,27 +24,28 @@ namespace JeuDeMath
                 //      2 = multiplication
                 int resultatAttendu;
 
-                if (o == e_Operateur.ADDITION)//Addition
-                {
-                    Console.Write($"{a} + {b} = ");
-                    resultatAttendu = a + b;
-                }
-                else if (o == e_Operateur.MULTIPLICATION) //multiplication
-                {
-                    Console.Write($"{a} x {b} = ");
-                    resultatAttendu = a * b;
 
-                }
-                else if (o == e_Operateur.SOUSTRACTION) //Soustraction
+                switch (o)
                 {
-                    Console.Write($"{a} - {b} = ");
-                    resultatAttendu = a - b;
+                    case e_Operateur.ADDITION:
+                        Console.Write($"{a} + {b} = ");
+                        resultatAttendu = a + b;
+                        break;
+                    case e_Operateur.MULTIPLICATION:
+                        Console.Write($"{a} x {b} = ");
+                        resultatAttendu = a * b;
+                        break;
+                    case e_Operateur.SOUSTRACTION:
+                        Console.Write($"{a} - {b} = ");
+                        resultatAttendu = a - b;
+                        break;
+                    default:
+                        // CAS INCONNU
+                        Console.WriteLine("ERREUR ! Operateur inconnu");
+                        return false;
                 }
-                else
-                {
-                    Console.WriteLine("ERREUR ! Operateur inconnu");
-                    return false;
-                }
+
+
                 string reponse = Console.ReadLine();
 
                 try
