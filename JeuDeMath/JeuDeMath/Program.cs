@@ -4,6 +4,12 @@ namespace JeuDeMath
 {
     class Program
     {
+        enum e_Operateur
+        {
+            ADDITION = 1,
+            MULTIPLICATION = 2,
+            SOUSTRACTION = 3,
+        }
         static bool poserQuestion(int min, int max)
         {
             Random rand = new Random();
@@ -12,22 +18,32 @@ namespace JeuDeMath
             {
                 int a = rand.Next(min, max+1);
                 int b = rand.Next(min,max+1);
-                int o = rand.Next(min,3);
+                e_Operateur o = (e_Operateur)rand.Next(1,4);
                 // o -> 1 ou 2
                 //      1 = multiplication
                 //      2 = multiplication
                 int resultatAttendu;
 
-                if (o == 1)//Addition
+                if (o == e_Operateur.ADDITION)//Addition
                 {
                     Console.Write($"{a} + {b} = ");
                     resultatAttendu = a + b;
                 }
-                else //multiplication
+                else if (o == e_Operateur.MULTIPLICATION) //multiplication
                 {
                     Console.Write($"{a} x {b} = ");
                     resultatAttendu = a * b;
 
+                }
+                else if (o == e_Operateur.SOUSTRACTION) //Soustraction
+                {
+                    Console.Write($"{a} - {b} = ");
+                    resultatAttendu = a - b;
+                }
+                else
+                {
+                    Console.WriteLine("ERREUR ! Operateur inconnu");
+                    return false;
                 }
                 string reponse = Console.ReadLine();
 
@@ -56,7 +72,7 @@ namespace JeuDeMath
         {
             const int NOMBRE_MIN = 1;
             const int NOMBRE_MAX = 10;
-            const int NB_QUESTION = 10;
+            const int NB_QUESTION = 4;
 
             int points = 0;
 
